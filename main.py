@@ -1,13 +1,13 @@
 from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
 
+# TODO Make plan to extract vocab
 req = Request( url="https://junyu.org/study/vocab/",headers={'User-Agent':'Edge/135.0.3179.54'})
-
 page = urlopen(req)
 html = page.read().decode('utf-8')
+soup = BeautifulSoup(html, "html.parser")
 
-title_index = html.find("<title>")
-start_index = title_index + len("<title>")
-end_index = html.find("</title>")
+divs = soup.find_all("div")
 
-title = html[start_index:end_index]
-print(title)
+for div in divs:
+    print(div["class"])
