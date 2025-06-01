@@ -1,5 +1,5 @@
 from urllib.request import Request, urlopen
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup # type: ignore
 
 # TODO Make plan to extract vocab
 req = Request( url="https://junyu.org/study/vocab/",headers={'User-Agent':'Edge/135.0.3179.54'})
